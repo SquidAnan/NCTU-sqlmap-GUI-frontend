@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>sqlmap GUI</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="attack.css" />
+  </head>
+
+  <body>
+    
+    <a href="../">back</a>
+    <h1>attack.html</h1>
+    
+    <section>
+      <h2>Choose your verbosity</h2>
+      <select>
+        <option>0</option>
+        <option selected>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select>
+    </section>
+
+    <section>
+      <h2>Choose your targets (at least one)</h2>
+
+      <div class="option">
+        <input class="checkbox show-input" type="checkbox" onclick="showInput()">
+        <div class="option-text">Connection string for direct database connection</div>
+        <div class="input-text" style="display:none">
+            <input type="text">
+        </div>
+      </div>
+
+      <div class="option">
+        <input class="checkbox show-input" type="checkbox" onclick="showInput()">
+        <div class="option-text">Target URL (e.g. "http://www.site.com/vuln.php?id=1")</div>
+        <div class="input-text" style="display:none">
+            <input type="text">
+        </div>
+      </div>
+
+      <div class="option">
+        <input class="checkbox show-input" type="checkbox" onclick="showInput()">
+        <div class="option-text">Parse target(s) from Burp or WebScarab proxy log file</div>
+        <div class="input-text" style="display:none">
+            <input type="text">
+        </div>
+      </div>
+
+    </section>
+
+    <div class="button" onclick="collectData()">Attack!</div>
+
+    <script>
+        function showInput() {
+            var checkBox = document.getElementsByClassName("show-input");
+            var text = document.getElementsByClassName("input-text");
+            var size = checkBox.length;
+            
+            for(i=0; i<size; i++){
+                if (checkBox[i].checked == true){
+                    text[i].style.display = "block";
+                } else {
+                    text[i].style.display = "none";
+                }
+            }
+        }
+
+        function collectData() {
+            alert("send data to backend");
+        }
+    </script>
+    
+  </body>
+</html>
